@@ -257,7 +257,7 @@ namespace GuidelinesInheritance {
         class Base
         {
         public:
-            /*virtual*/ ~Base() {
+            virtual ~Base() {
                 std::println("d'tor Base");
             }
 
@@ -283,9 +283,9 @@ void clean_code_guidelines_inheritance()
 {
     using namespace GuidelinesInheritance;
 
-    ClassVsStructInvariants::guidelines_inherently_hierarchical();
-    ComparisonVirtualNonVirtual::guidelines_inheritance_virtual();
-    Keyword_Override::guidelines_inheritance_keyword_override();
+    //ClassVsStructInvariants::guidelines_inherently_hierarchical();
+    //ComparisonVirtualNonVirtual::guidelines_inheritance_virtual();
+    //Keyword_Override::guidelines_inheritance_keyword_override();
     Virtual_BaseClassDestructor::test_base_class_destructor();
 }
 

@@ -41,11 +41,11 @@ Flughöhe:
 -- Design Pattern
 
 
--- auto als Parameter
+-- auto als Parameter // auto als Return 
 
 -- Type Traits
 
--- Structured Binding
+-- Structured Binding // const auto& [first, relation, second]
 
 -- Statischer vs. dynamischer Polymorphismus
 
@@ -81,6 +81,191 @@ Verbot :)   Keine Pointer
 Wenn Zeit reicht:
 
 -- Aufrufbare Objekt   // operator()
+
+
+===============================================================
+
+Einmal virtual, immer virtual
+
+final: Verhindert, dass in Kindklassen überschrieben wird.
+
+Abstract Class
+
+Ist eine unvollständige Klasse
+
+
+===============================================
+
+„High-Level”-Module   
+
+„Low-Level”-Module
+
+
+„High-Level”-Module benötigen die Dienste // API des „Low-Level”-Moduls
+
+Wer ist der Glückliche  ?? „High-Level”-Module  - Weil in der Regel "einfacher"
+
+Wer ist der Glückliche  ?? „Low-Level”-Module : Es wird das API geändert 
+
+				         Schnittstellenänderung
+
+
+Abstraktion mit Interfaces // Entkopplung :  Hmmm, da kommen mehr Klassen (interface) hinzu .
+
+====================================================
+
+Design Pattern:
+
+Bild // UML
+
+Text
+
+Beispiel:  Conceptual Example // Konzeptionelles Beispiel
+
+                      Umsetzung:  UML ==> C++ 
+
+		  Real-World: Wo kann man das in der Praxis einsetzen.
+
+Hmmm, hätte ich auch so gemacht ...
+
+clientCode - Methode:
+
+Schnittstelle der Abstraktion:  Interface
+
+Trennung:  Client <==> Interface <==> Zielmethode / Ziellogik
+
+====================================================
+
+Adapter Pattern:
+
+== JSON
+
+== XML 
+
+== Anderes Format
+
+Konverter :)
+
+Transparenter Verpacken ...
+
+Wiederverwendbarer Verpacken ...
+
+Flexibles Verpacken ...
+
+
+====================================================
+
+Design Pattern:
+
+Wie genau / exakt müssen wir uns an ein Pattern halten ???
+
+a) Details, die das Pattern nicht beschreibt:
+
+   zB: Adaptee (fremde Klasse):  
+
+   Als Objekt am Stack
+   Via std::unique_ptr am Heap
+
+b) Abweichungen sind legitim !!!!!!!!!
+
+   Gründe 
+
+c) Die Grundstruktur des Patterns sollte IMMER erkennbar sein.
+
+
+============================================================
+
+Adapter
+
+Proxy
+
+Gemeinsamkeiten:
+
+== Ziel-Objekt mit Methoden
+
+Adapter: Inkompatibilität
+
+Proxy:   Hinzufügen von erweiterten Funktionen
+
+
+Proxy für den Apdapter:  Wäre kombinierbar.
+
+Nicht: Two - in - One.
+
+Seperation of Concerns: Plug-and-Play
+
+=========================================
+
+Template Method Pattern: Schablonen-Methode
+
+Beispiel:
+
+Games:
+
+Tetris:  7 Figuren
+
+Sind ähnlich im Aufbau:
+
+Ablauf / Bewegung:
+
+-- Von oben nach unten
+-- links oder rechts, wenn Platz ist
+-- Drehen,  wenn Platz ist
+-- Beendet, wenn unterhalb kein Platz ist.
+
+Prinzipieller Ablauf ist IDENTISCH für alle Figuren.
+
+Ablauf: EINE Methode.
+
+
+
+============================================================
+
+Adapter
+Proxy
+Template Method
+
+Gemeinsamkeiten:
+
+== Ziel-Objekt mit Methoden oder eine Methode gibt
+
+
+Adapter:   Inkompatibilität
+
+Proxy:     Hinzufügen von erweiterten Funktionen
+
+Template:  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
