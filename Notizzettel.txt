@@ -1,7 +1,86 @@
 // ==================================================
 
-Seminar "C++ Uodates"
+Seminar "C++ Clean Code"
 
 Peter Loos
 
+30+ Jahre
+
+SW: Entwicklung // Training
+
+C/C++, Java, C#, Mobile Progr. (Android, Java)
+
 // ==================================================
+
+C++ Clean Code:
+
+2 Tools:
+
+== Visual Studio Community 2026 
+
+== Github
+
+// ==================================================
+
+Inhalt:
+-------
+
+Agenda: Schwerpunkte
+
+Clean Code C++
+
+Flughöhe:
+
+== Clean Coding: Details ....
+
+== Clean Coding: Höherer Warte (Design Muster, Idiome, ...) ....
+
+== Performanz ist ein Thema
+
+
+-- Design Pattern
+
+
+-- auto als Parameter
+
+-- Type Traits
+
+-- Structured Binding
+
+-- Statischer vs. dynamischer Polymorphismus
+
+   Gegenüberstellung // Beispiel: ALl-In
+
+-- std::initializer_list
+
+-- std::expected
+
+-- Templates
+
+   Folding // Variadische Templates (...) // emplace 
+
+-- Perfektes Weiterleiten (Perfect Forwarding)
+
+-- constexpr
+
+-- Benutzerdefinierte Literale
+
+-- std::ranges
+
+-- std::string_view  // std::string
+
+-- noexcept // Background
+
+-- The Return of „printf”: std::print(ln) in C++ 23
+
+-- Modul-Konzept
+
+Verbot :)   Keine Pointer
+
+
+Wenn Zeit reicht:
+
+-- Aufrufbare Objekt   // operator()
+
+
+
