@@ -1,4 +1,4 @@
-// ==================================================
+Ôªø// ==================================================
 
 Seminar "C++ Clean Code"
 
@@ -22,6 +22,8 @@ C++ Clean Code:
 
 // ==================================================
 
+Donnerstag: Weiter bei "Initialisierung von Objekten"
+
 Inhalt:
 -------
 
@@ -29,11 +31,11 @@ Agenda: Schwerpunkte
 
 Clean Code C++
 
-Flughˆhe:
+Flugh√∂he:
 
 == Clean Coding: Details ....
 
-== Clean Coding: Hˆherer Warte (Design Muster, Idiome, ...) ....
+== Clean Coding: H√∂herer Warte (Design Muster, Idiome, ...) ....
 
 == Performanz ist ein Thema
 
@@ -49,7 +51,10 @@ Flughˆhe:
 
 -- Statischer vs. dynamischer Polymorphismus
 
-   Gegen¸berstellung // Beispiel: ALl-In
+   Gegen√ºberstellung // Beispiel: ALl-In
+
+
+-- Brace Initialisierung
 
 -- std::initializer_list
 
@@ -71,7 +76,7 @@ Flughˆhe:
 
 -- noexcept // Background
 
--- The Return of Ñprintfî: std::print(ln) in C++ 23
+-- The Return of ‚Äûprintf‚Äù: std::print(ln) in C++ 23
 
 -- Modul-Konzept
 
@@ -87,27 +92,27 @@ Wenn Zeit reicht:
 
 Einmal virtual, immer virtual
 
-final: Verhindert, dass in Kindklassen ¸berschrieben wird.
+final: Verhindert, dass in Kindklassen √ºberschrieben wird.
 
 Abstract Class
 
-Ist eine unvollst‰ndige Klasse
+Ist eine unvollst√§ndige Klasse
 
 
 ===============================================
 
-ÑHigh-Levelî-Module   
+‚ÄûHigh-Level‚Äù-Module   
 
-ÑLow-Levelî-Module
+‚ÄûLow-Level‚Äù-Module
 
 
-ÑHigh-Levelî-Module benˆtigen die Dienste // API des ÑLow-Levelî-Moduls
+‚ÄûHigh-Level‚Äù-Module ben√∂tigen die Dienste // API des ‚ÄûLow-Level‚Äù-Moduls
 
-Wer ist der Gl¸ckliche  ?? ÑHigh-Levelî-Module  - Weil in der Regel "einfacher"
+Wer ist der Gl√ºckliche  ?? ‚ÄûHigh-Level‚Äù-Module  - Weil in der Regel "einfacher"
 
-Wer ist der Gl¸ckliche  ?? ÑLow-Levelî-Module : Es wird das API ge‰ndert 
+Wer ist der Gl√ºckliche  ?? ‚ÄûLow-Level‚Äù-Module : Es wird das API ge√§ndert 
 
-				         Schnittstellen‰nderung
+				         Schnittstellen√§nderung
 
 
 Abstraktion mit Interfaces // Entkopplung :  Hmmm, da kommen mehr Klassen (interface) hinzu .
@@ -126,7 +131,7 @@ Beispiel:  Conceptual Example // Konzeptionelles Beispiel
 
 		  Real-World: Wo kann man das in der Praxis einsetzen.
 
-Hmmm, h‰tte ich auch so gemacht ...
+Hmmm, h√§tte ich auch so gemacht ...
 
 clientCode - Methode:
 
@@ -157,7 +162,7 @@ Flexibles Verpacken ...
 
 Design Pattern:
 
-Wie genau / exakt m¸ssen wir uns an ein Pattern halten ???
+Wie genau / exakt m√ºssen wir uns an ein Pattern halten ???
 
 a) Details, die das Pattern nicht beschreibt:
 
@@ -168,7 +173,7 @@ a) Details, die das Pattern nicht beschreibt:
 
 b) Abweichungen sind legitim !!!!!!!!!
 
-   Gr¸nde 
+   Gr√ºnde 
 
 c) Die Grundstruktur des Patterns sollte IMMER erkennbar sein.
 
@@ -183,12 +188,12 @@ Gemeinsamkeiten:
 
 == Ziel-Objekt mit Methoden
 
-Adapter: Inkompatibilit‰t
+Adapter: Inkompatibilit√§t
 
-Proxy:   Hinzuf¸gen von erweiterten Funktionen
+Proxy:   Hinzuf√ºgen von erweiterten Funktionen
 
 
-Proxy f¸r den Apdapter:  W‰re kombinierbar.
+Proxy f√ºr den Apdapter:  W√§re kombinierbar.
 
 Nicht: Two - in - One.
 
@@ -204,7 +209,7 @@ Games:
 
 Tetris:  7 Figuren
 
-Sind ‰hnlich im Aufbau:
+Sind √§hnlich im Aufbau:
 
 Ablauf / Bewegung:
 
@@ -213,7 +218,7 @@ Ablauf / Bewegung:
 -- Drehen,  wenn Platz ist
 -- Beendet, wenn unterhalb kein Platz ist.
 
-Prinzipieller Ablauf ist IDENTISCH f¸r alle Figuren.
+Prinzipieller Ablauf ist IDENTISCH f√ºr alle Figuren.
 
 Ablauf: EINE Methode.
 
@@ -230,37 +235,155 @@ Gemeinsamkeiten:
 == Ziel-Objekt mit Methoden oder eine Methode gibt
 
 
-Adapter:   Inkompatibilit‰t
+Adapter:   Inkompatibilit√§t
 
-Proxy:     Hinzuf¸gen von erweiterten Funktionen
+Proxy:     Hinzuf√ºgen von erweiterten Funktionen
 
 Template:  
 
+============================================================
+
+Decorator-Namen:
+
+H√ºllen-Pattern // Wrapper-Pattern.
+
+Decorator  ==> ausschm√ºcken ...
+
+Erm√∂glicht das Hinzuf√ºgen zus√§tzlicher Funktionalit√§ten zu Objekten zur Laufzeit.
+
+Vererbung: Spezialisieren.
+
+Mir geh√∂rt die Klasse m√∂glicherweise nicht.
+
+
+Decorator versus Proxy
+----------------------
+
+Gemeinsam:
+
+Es gibt eine Ziel-Klasse mit ein oder mehreren Methoden.
+
+Wann verwenden wir Proxy ???
+Wann verwenden wir Decorator ???
+
+Decorierer k√∂nnen Vorgaben zur Laufzeit entgegennehmen.
+
+Ein Proxy ist vom "Wesen" // "Naturell" her ein STELLVERTRETER.
+
+Bei einem Proxy will ich das Zielobjekt NICHT mehr sehen.
+
+Ein Decorierer ist vom "Wesen" her ein Objekt,  das zus√§tzliche Funktionalit√§t f√ºr 
+   eine bestimmte Methode realisiert.
+
+Ein Decorierer ist eine H√úLLE um ein Zielobjekt.
+
+
+============================================================
+
+Strategy - Pattern
+==================
+
+Back to the Roots:
+
+STL:
+
+std::sort (pos1, pos2, function);
+
+comparison function object (i.e. an object that satisfies the requirements of Compare)
+which returns ‚Äãtrue if the first argument is less than (i.e. is ordered before) the second.
+
+The signature of the comparison function should be equivalent to the following:
+
+bool cmp(const Type1& a, const Type2& b);  // Vergleichsfunktion
+
+Die Vergleichsfunktion ist die STRATEGIE der std::sort Methode.
+
+=============================================================
+
+Modern C++:
+-----------
+
+Classic C++: interface
+
+Modern C++:  std::function
+
+=============================================================
+
+Fabrik:
+
+Erzeugt Objekt.
+
+Hmm, dazu haben wir Klassen und deren Konstruktoren.
+
+Toolbox von Shapes:  Circle, Rectangle, ....
+
+Andere Herangehensweise:
+
+a) Will Figuren aus einer  Toolbox haben
+
+b) Kenne aber die Klassen gar nicht...
+
+   Win32 Toolbox
+   Open GL Toolbox
+
+c) Hmm, will nur "indirekt" sagen: Gib mir einen Kreis.
+
+d) Wie datentechnisch: interface.
+
+Einfachste Fabrik: Simple Factory
+
+================================================================
+
+
+#if 0
+
+
+//  ads
+//  ads
+//  ads
+//  das
+//  dsa
+//  das
+
+#endif
+
+
+================================================================
+
+#include "MyHeader.h"
+
+Zum Nachdenken:
+
+ == Lokale #include-Dateien        "MyHeader.hpp"
+ 
+ == Drittanbieter #include-Dateien // boost // OPenGL
+ 
+ == STL #include-Dateien           // <algorithm>  / <vector>
+
+
+
+ Test.cpp
+
+ #incude "Test.hpp"
+ 
+ ========================================================
+
+Kopierkonstruktor (Copy Constructor)	X(const X&)
+
+  // automatisch erzeugt  =====> Byte-weise // Bit f√ºr Bit
+
+  // Problem:   Damit w√ºrden auch Pointer kopiert werden.
+
+Wann MUSS der implementiert werden ???
+
+Wenn mit new im Objekt Daten allokiert werden und diese Adressen in den Instanzvariablen
+liegen.
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Wenn Objekte kopiert werden sollen ....
 
 
 

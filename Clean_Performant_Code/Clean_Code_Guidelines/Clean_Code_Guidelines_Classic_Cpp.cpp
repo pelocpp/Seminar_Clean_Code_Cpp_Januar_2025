@@ -174,7 +174,7 @@ namespace CleanCodeGuidelines_ClassicCpp {
 
             static void test_variant_03() {
 
-                // Point2D point;  // error: does not compile
+              //  Point2D point;  // error: does not compile
                 Point2D anotherPoint{ 1.0, 2.0 };
             }
         }
@@ -250,7 +250,7 @@ namespace CleanCodeGuidelines_ClassicCpp {
 
             static void test_variant_07() {
 
-                Point2D point{};
+                Point2D point{};  // safe , secure hmmm eher nicht
                 Point2D anotherPoint{ 1.0, 2.0 };
             }
         }
@@ -959,20 +959,20 @@ namespace CleanCodeGuidelines_ClassicCpp {
 
 void clean_code_guidelines_classic_cpp()
 {
-    CleanCodeGuidelines_ClassicCpp::ClassVsStructInvariants::guidelines_invariants();    // crashes intentionally
-    CleanCodeGuidelines_ClassicCpp::DefaultedConstructors::guidelines_defaulted_constructor();
+    //CleanCodeGuidelines_ClassicCpp::ClassVsStructInvariants::guidelines_invariants();    // crashes intentionally
+    //CleanCodeGuidelines_ClassicCpp::DefaultedConstructors::guidelines_defaulted_constructor();
     CleanCodeGuidelines_ClassicCpp::InitializationOfStructs::guidelines_initialization_of_structs();
-    CleanCodeGuidelines_ClassicCpp::InitializationOfObjects::guidelines_initialization_of_objects();
-    CleanCodeGuidelines_ClassicCpp::CopySwapIdiom::guidelines_copy_swap_idiom();
-    CleanCodeGuidelines_ClassicCpp::MoveOperations::guidelines_move_operations();
-    CleanCodeGuidelines_ClassicCpp::SmallFocusedFunctions::guidelines_small_focused_functions();
-    CleanCodeGuidelines_ClassicCpp::UseConstLiberally::guidelines_use_const_liberally();
-    CleanCodeGuidelines_ClassicCpp::PreferExceptionsOverErrorCodes::guidelines_error_handling();
-    CleanCodeGuidelines_ClassicCpp::MethodsReturnType_CopiedToCaller::guidelines_return_type();
-    CleanCodeGuidelines_ClassicCpp::MethodsReturnType_LifetimeByVoucher::guidelines_return_type();
-    CleanCodeGuidelines_ClassicCpp::CompositionOverInheritance::guidelines_prefer_composition_over_inheritance();
-    CleanCodeGuidelines_ClassicCpp::PreventImplicitConversions::guidelines_implicit_conversion();
-    CleanCodeGuidelines_ClassicCpp::IfForStatementWithInitializer::guidelines_if_for_statement_with_initializer();
+    //CleanCodeGuidelines_ClassicCpp::InitializationOfObjects::guidelines_initialization_of_objects();
+    //CleanCodeGuidelines_ClassicCpp::CopySwapIdiom::guidelines_copy_swap_idiom();
+    //CleanCodeGuidelines_ClassicCpp::MoveOperations::guidelines_move_operations();
+    //CleanCodeGuidelines_ClassicCpp::SmallFocusedFunctions::guidelines_small_focused_functions();
+    //CleanCodeGuidelines_ClassicCpp::UseConstLiberally::guidelines_use_const_liberally();
+    //CleanCodeGuidelines_ClassicCpp::PreferExceptionsOverErrorCodes::guidelines_error_handling();
+    //CleanCodeGuidelines_ClassicCpp::MethodsReturnType_CopiedToCaller::guidelines_return_type();
+    //CleanCodeGuidelines_ClassicCpp::MethodsReturnType_LifetimeByVoucher::guidelines_return_type();
+    //CleanCodeGuidelines_ClassicCpp::CompositionOverInheritance::guidelines_prefer_composition_over_inheritance();
+    //CleanCodeGuidelines_ClassicCpp::PreventImplicitConversions::guidelines_implicit_conversion();
+    //CleanCodeGuidelines_ClassicCpp::IfForStatementWithInitializer::guidelines_if_for_statement_with_initializer();
 }
 
 // ===========================================================================

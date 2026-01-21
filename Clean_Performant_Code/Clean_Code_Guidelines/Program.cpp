@@ -10,10 +10,10 @@ void clean_code_guidelines_stl();
 
 int main()
 {
-    //clean_code_guidelines_classic_cpp();
+    clean_code_guidelines_classic_cpp();
     //clean_code_guidelines_modern_cpp();
     //clean_code_guidelines_generic_programming();
-    clean_code_guidelines_inheritance();
+   // clean_code_guidelines_inheritance();
     //clean_code_guidelines_stl();
 
     return 0;
