@@ -11,13 +11,18 @@ void main_initializer_list();
 void main_generic_functions();
 void main_constexpr();
 void main_folding();
+void main_perfect_forwarding();
+void main_rvalue_lvalue();
 
 void main_brace_initialization();
 void main_structured_binding();
+void main_folding();
+void main_variant();
+void main_string_view();
 
 int main()
 {
-    main_folding();
+    main_string_view();
 
     //clean_code_guidelines_classic_cpp();
     //clean_code_guidelines_modern_cpp();

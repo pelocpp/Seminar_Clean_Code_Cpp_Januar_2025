@@ -57,6 +57,18 @@
     <ClCompile Include="Topic_08_Logging.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Topic_08_Perfektes_Weiterleiten.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_09_RValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_10_Variant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_11_StringView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Clean_Code_Readme_Guidelines.md">

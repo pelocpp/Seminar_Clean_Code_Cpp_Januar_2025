@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <iostream>
 #include <functional>
+#include <memory>
 
 namespace Folding_Seminar {
 
@@ -77,7 +78,7 @@ namespace Folding_Seminar {
 
     }
 
-    void test_folding_seminar() {
+    void test_folding_seminar_zum_ersten() {
 
         auto result = addiererFolding(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
@@ -88,6 +89,107 @@ namespace Folding_Seminar {
         printerImproved(1, 2, 3, 4, 5);
 
     }
+    class Unknown {
+    private:
+        int m_var1;
+        int m_var2;
+        int m_var3;
+        std::string m_data{"ABC"};
+
+    public:
+        Unknown(const Unknown& other) 
+            : m_var1{ other.m_var1 }, m_var2{ other.m_var2 }, m_var3{ other.m_var3 }
+        {
+            m_data = other.m_data;
+            std::cout << "copy c'tor()" << std::endl;
+        }
+
+        Unknown(Unknown&& other) /*noexcept*/
+            : m_var1{ other.m_var1 }, m_var2{ other.m_var2 }, m_var3{ other.m_var3 }
+        {
+            m_data = std::move (other.m_data);
+            std::cout << "move c'tor()" << std::endl;
+        }
+
+        Unknown() : m_var1{ -1 }, m_var2{ -1 }, m_var3{ -1 } {
+            std::cout << "c'tor()" << std::endl;
+        }
+
+        Unknown(int n) : m_var1{ n }, m_var2{ -1 }, m_var3{ -1 } {
+            std::cout << "c'tor(int)" << std::endl;
+        }
+
+        Unknown(int n, int m) : m_var1{ n }, m_var2{ m }, m_var3{ -1 } {
+            std::cout << "c'tor(int, int)" << std::endl;
+        }
+
+        Unknown(int n, int m, int k) : m_var1{ n }, m_var2{ m }, m_var3{ k } {
+            std::cout << "c'tor(int, int, int)" << std::endl;
+        }
+
+        friend std::ostream& operator<< (std::ostream&, const Unknown&);
+    };
+
+    std::ostream& operator<< (std::ostream& os, const Unknown& obj) {
+        os
+            << "var1: " << obj.m_var1
+            << ", var2: " << obj.m_var2
+            << ", var3: " << obj.m_var3;
+
+        return os;
+    }
+
+    void test_folding_seminar_move_semantic() {
+
+        std::vector<Unknown> vec;
+
+        //vec.push_back( Unknown{1, 2, 3} );
+
+        //vec.push_back(Unknown{ 2, 3, 4 });
+
+        vec.emplace_back(1, 2, 3);
+
+    }
+
+
+    void dummy(const int& a)
+    {
+
+    }
+
+    // Gute Variante, aber sie arbeitet mit Kopien
+    template <typename T, typename ... TArgs>
+    std::unique_ptr<T> my_make_unique(TArgs ... args) {
+
+        std::unique_ptr<T> tmp{ new T{ args ... } };
+        return tmp;
+    }
+
+    // Perfekte Variante, sie arbeitet NUR mit Referenzen
+    // Beobachtung: Perfekte Weiterleiten
+    template <typename T, typename ... TArgs>
+    std::unique_ptr<T> my_make_unique_02(TArgs&& ... args) {
+
+        std::unique_ptr<T> tmp{ new T{ args ... } };
+        return tmp;
+    }
+
+
+    void test_folding_seminar_mit_unique() {
+
+        std::unique_ptr<int> ptr1 = std::make_unique<int>(123);
+
+        std::unique_ptr<Unknown> ptr2 = std::make_unique<Unknown>(1, 2, 3);
+
+        int a = 123;
+        std::unique_ptr<Unknown> ptr3 = my_make_unique_02<Unknown>(a, 2, 3);
+
+        int n = 1;
+        dummy(1);
+
+    }
+
+
 }
 
 namespace Folding {
@@ -247,7 +349,7 @@ void main_folding()
 {
     using namespace Folding;
 
-    Folding_Seminar::test_folding_seminar();
+    Folding_Seminar::test_folding_seminar_move_semantic();
     return;
     test_01();
     test_02();

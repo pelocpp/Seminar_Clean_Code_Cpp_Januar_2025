@@ -4,6 +4,11 @@ Seminar "C++ Clean Code"
 
 Peter Loos
 
+peter.loos@gmx.de
+-----------------
+
+https://github.com/pelocpp
+
 30+ Jahre
 
 SW: Entwicklung // Training
@@ -531,6 +536,14 @@ Transport von Daten von A nach B.
 
 zB als Parameter einer Funktion (A) hin zu einer std::initializer_list (B)
 
+std::make_tuple
+
+std::make_shared
+
+std::make_unique
+
+Threads:  std::thread  => Konstruktor
+
 ==========================================================
 
 Beispiel zu Logging:
@@ -543,3 +556,109 @@ Mit  dem Komma erhält man eine Sequenz:
 
 func(), func(), func(), func(), func(); 
 
+==========================================================
+
+Variadische Templates:
+----------------------
+
+Perfekte Weiterleiten  // Clean & Perfect Code
+
+
+===================================================
+
+Warum geht 
+
+        sayHello(a + b);
+
+das so nicht: a + b ist temporär.
+
+Grund:  Eine Referenz bezieht sich auf eine Variable / Objekt:
+
+int n;
+int& ri = n;
+
+a + b hat keinen Namen.
+
+===============================================
+
+Zusammenfassung:
+
+Guter Code
+Performanter Code
+Clean Code
+
+Problem:  Es können immer wieder KOPIEN entstehen.
+
+zB beim Aufruf von Methoden / Funktionen mit OBJEKTEN als Parameter.
+
+Lösung:
+
+a) Referenzen
+
+   Hmmm: Klassische Referenz (&) - LValue-Referenz -  geht nur für Objekt mit NAMEN,
+   nicht für tmp. Objekte, anonyme Objekte.
+
+b) Neuer Referenztyp: &&  (RValue-Referenz)
+
+   Bindet an anonyme Objekte.
+
+c) Doch noch ein Problem: 
+
+   Ein anonymes Objekt hat nach Funktionsaufruf wieder einen NAMEN.
+
+     ==> Kann eigentlich nicht verschoben werden.
+
+d) Lösung: Perfekte Weiterleiten.
+
+   Dazu ein neuer Begriff: Universal Referenz.
+
+   https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/PerfectForwarding/PerfectForwarding.md
+
+Hier sollte man tatsächlich nach KOCHREZEPT arbeiten:
+
+A) Parameter: T &&
+
+    template<typename ... TArgs>
+    static void logInternal(std::ostream& os, TArgs&& ...args)
+
+
+B) Gebrach des Makros std::forward<>
+
+================================================
+
+Programmierung und Datentypen
+-----------------------------
+
+std::variant // std::visit 
+
+==> "Type Traits"
+
+C# / Java: Reflection API
+
+C++: Reflection für Arme.
+
+Nomenklatur in C++:  Metaprogramming  // Type Traits
+
+   Programmierung mit Datentypen.
+
+===============================================
+
+C++ 17:
+
+Zweite Version von if:
+
+if compile_time (Bedingung)  <==== Übersetzer
+
+std::is_same<ElemTypeWithoutRefAndConst, int>::value == true:
+
+Ja, das kann der Übersetzer !!!
+
+===============================================
+
+std::vector:              HEAP
+std::initializer_list     STACK
+
+std::string               HEAP
+std::string_view          Auf jeden Fall NICHT AM HEAP
+
+===============================================

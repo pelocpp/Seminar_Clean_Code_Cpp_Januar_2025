@@ -152,6 +152,10 @@
     <ClCompile Include="Topic_06_Structured_Binding.cpp" />
     <ClCompile Include="Topic_07_Folding.cpp" />
     <ClCompile Include="Topic_08_Logging.h" />
+    <ClCompile Include="Topic_08_Perfektes_Weiterleiten.cpp" />
+    <ClCompile Include="Topic_09_RValue.cpp" />
+    <ClCompile Include="Topic_10_Variant.cpp" />
+    <ClCompile Include="Topic_11_StringView.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
