@@ -144,6 +144,14 @@
     <ClCompile Include="Clean_Code_Guidelines_Modern_Cpp.cpp" />
     <ClCompile Include="Clean_Code_Guidelines_STL.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Topic_01_Initialisierung.cpp" />
+    <ClCompile Include="Topic_02_Initializer_List.cpp" />
+    <ClCompile Include="Topic_03_auto.cpp" />
+    <ClCompile Include="Topic_04_Generic_Functions.cpp" />
+    <ClCompile Include="Topic_05_constexpr.cpp" />
+    <ClCompile Include="Topic_06_Structured_Binding.cpp" />
+    <ClCompile Include="Topic_07_Folding.cpp" />
+    <ClCompile Include="Topic_08_Logging.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

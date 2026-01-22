@@ -379,16 +379,167 @@ Wann MUSS der implementiert werden ???
 Wenn mit new im Objekt Daten allokiert werden und diese Adressen in den Instanzvariablen
 liegen.
 
-
-
-
-
 Wenn Objekte kopiert werden sollen ....
 
 
+==================================
+
+https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/BraceInitialization/BraceInitialization.md
+
+Neue Form der Initialisierung:
+
+Brace Initialization	Einheitliches Initialisierungs-Konzept
+
+
+        int intArray7[10]{ };
+00007FF6AFD7C8F9  lea         rax,[intArray7]  
+00007FF6AFD7C900  mov         rdi,rax  
+00007FF6AFD7C903  xor         eax,eax     // 0
+00007FF6AFD7C905  mov         ecx,28h     // 28 h = 40 dez. 
+00007FF6AFD7C90A  rep stos    byte ptr [rdi]  
+
+rep Repeat Prefix: 
+
+------------
+
+        double d1 = ival;      // Compiles
+00007FF7F4CFB710  cvtsi2sd    xmm0,dword ptr [ival]  
+00007FF7F4CFB715  movsd       mmword ptr [d1],xmm0  
+
+==================================
+
+std::initializer_list ist kein vollwertiger STL Container
+
+Light Weight Container:
+
+begin()
+end()
+size()
+
+std::initializer_list  ==> STACK
+std::vector            ==> HEAP    ( new  , delete )
+
+============================
+
+elision : Auslassen , Weglassen
+
+std::vector<int> vec( 10 );  // Size: 10 - Alle Werte: 0
+
+vs.
+
+std::vector<int> vec{ 10 }; // Size: 1 - Wert: 10
 
 
 
+std::string s (10, 40);   // Len: 10, 10 Mal das Zeichen 10
+
+std::string s { 10, 40 };  // Len: 2 -- 
 
 
+==================================================
+
+Verständnis:  "Cpp Insights"  // Andreas Fertig
+
+=================================================
+
+auto:
+
+3 Möglichkeiten des Gebrauchs:
+
+a) Vereinbarung von Variablen
+
+b) Rückgabetyp
+
+c) Als Parameter
+
+
+// Verlust von const und & (Referenz) bei auto
+
+=============================================
+
+constexpr:
+
+        constexpr Complex c3{ c1 + c2 };
+00007FF735FDD5C0  movss       xmm0,dword ptr [__real@40800000 (07FF73608612Ch)]  
+00007FF735FDD5C8  movss       dword ptr [c3],xmm0  
+00007FF735FDD5D0  movss       xmm0,dword ptr [__real@40a00000 (07FF736086130h)]  
+00007FF735FDD5D8  movss       dword ptr [rbp+8Ch],xmm0  
+
+
+        /*constexpr*/ Complex c3{ c1 + c2 };
+00007FF79F27EA3F  lea         r8,[c2]  
+00007FF79F27EA43  lea         rdx,[c3]  
+00007FF79F27EA4A  lea         rcx,[c1]  
+00007FF79F27EA4E  call        ConstExprClassesAndObjects::Complex::operator+ (07FF79F274039h)  
+
+
+==========================================================
+
+Structured Binding
+------------------
+
+==========================================================
+
+Clean Code UND Performanz:
+--------------------------
+
+Folding // C++ 17
+
+Voraussetzung:  Variadische Templates  (...)
+
+Folding:  "Abrollen"  // Falten
+
+int sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8;
+
+int sum = a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8;
+
+Alle Variablen a müssen als Pack vorliegen.
+
+Optimierung für Ausdrücke mit demselben Operator.
+
+Wie kann ich alle Variablen zu diesem Zweck "in einem Stück" in die
+Hand nehmen.
+
+====================================================
+
+C++ hat mehrere Facetten // vereint mehrere Stile:
+
+== OO Objekt-Orientiert
+
+== GP Generische Programmierung 
+
+Bjarne Stroustrup:  C++  // C with Classes
+
+Alexander Stepanov: Generische Programmierung (Templates)
+
+Bibliothek:  STL  Standard  Template Library
+
+        std::vector<T>
+
+Parameter Pack:  einpacken und auspacken.
+
+Für das Einpacken muss eine KOMMA getrennte Liste vorliegen.
+
+Zum Auspacken wird eine KOMMA getrennte Liste gebildet / erzeugt.
+
+
+==========================================================
+
+Wozu sind variadische Templates in der Sprache C++ enthalten:
+
+Transport von Daten von A nach B.
+
+zB als Parameter einer Funktion (A) hin zu einer std::initializer_list (B)
+
+==========================================================
+
+Beispiel zu Logging:
+
+https://github.com/pelocpp/cpp_concurrency/blob/master/Programs/Logger/Logger.h
+
+Was ist "Folding über einem Komma" ???????????????????  ,
+
+Mit  dem Komma erhält man eine Sequenz:
+
+func(), func(), func(), func(), func(); 
 
